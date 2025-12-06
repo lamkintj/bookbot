@@ -16,7 +16,18 @@ def count_characters(file_contents):
         count = 0
         for character in characters:
             if letter == character:
-                count += 1
+                count += 1        
         character_counts[letter] = count
     return character_counts
-            
+
+def sort_on(items):
+    return items["num"]
+
+def sort_counts(character_counts):
+    helper_list = []
+    for k,v in character_counts.items():
+        if k.isalpha():
+            entry = dict(char = k, num = v)
+            helper_list.append(entry)
+    helper_list.sort(reverse=True, key=sort_on)
+    return helper_list
